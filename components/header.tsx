@@ -8,6 +8,7 @@ const navItems = [
   { label: "トップ", href: "/" },
   { label: "理念", href: "/philosophy" },
   { label: "サービス", href: "/service" },
+  { label: "プロダクト", href: "/products" },
   { label: "メディア", href: "/media" },
   { label: "企業情報", href: "/company" },
 ]
