@@ -210,3 +210,15 @@
 
 /* 一覧のカードではモック画像だけ .pp を使う＝背景はカード側の色を見せる */
 .pp:not(main) { background: transparent; }
+
+/* スマホ専用プロダクト（TREAL）＝ブラウザ枠の代わりにスマホ2台を並べる */
+.pp .hero-visual.hv-phones { display: flex; justify-content: center; align-items: flex-start; gap: 6%; padding: 24px 0 56px; }
+.pp .hv-ph { position: relative; z-index: 1; width: 37%; border: 8px solid var(--ink); border-radius: 13% / 6%; overflow: hidden; background: var(--ink);
+    transform: perspective(1800px) rotateY(-10deg) rotateX(3deg); box-shadow: 0 50px 100px -30px rgba(0,0,0,.35), 0 20px 40px -20px rgba(0,0,0,.2); }
+.pp .hv-ph + .hv-ph { margin-top: 9%; }
+@media (max-width: 900px) {
+.pp .hero-visual.hv-phones { padding: 16px 0 32px; }
+.pp .hv-ph { border-width: 5px; width: 40%; }
+}
+.pp .cta .cta-link { display: block; width: fit-content; margin: 22px auto 0; font-size: 13px; color: var(--ink-3); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.pp .cta .cta-link:hover { color: var(--ink); border-color: var(--ink); }

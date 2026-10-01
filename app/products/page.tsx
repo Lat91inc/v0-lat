@@ -8,7 +8,7 @@ import { products } from "./data"
 import "./products.css"
 
 const description =
-  "株式会社Lat91が開発・提供するプロダクトの一覧。店舗のSNS配信を自動化するBaramaki AI、Instagramから商圏の見込み客リストを作るInsta Lead AIなど。"
+  "株式会社Lat91が開発・提供するプロダクトの一覧。店舗のSNS配信を自動化するBaramaki AI、Instagramから商圏の見込み客リストを作るInsta Lead AI、AIでサイトを生成するTalksite AI、レシートキャンペーンプラットフォームのTREAL。"
 
 export const metadata = createPageMetadata({ title: "プロダクト", description, path: "/products" })
 
@@ -36,7 +36,7 @@ export default function ProductsPage() {
             プロダクト
           </h1>
           <p className="text-[15px] text-neutral-500 leading-[2] max-w-[520px] [word-break:auto-phrase]">
-            店舗の集客と発信を、AIで支えるプロダクト。
+            集客・発信・販促を支えるプロダクト。
             <br />
             どれも、現場の担当者が毎日使う画面から設計しています。
           </p>
@@ -74,19 +74,32 @@ export default function ProductsPage() {
               </span>
             </div>
             <div className="pp">
-              <div className="hero-visual">
-                <div className="hv-browser">
-                  <div className="bar">
-                    <i />
-                    <i />
-                    <i />
+              {p.browserImage ? (
+                <div className="hero-visual">
+                  <div className="hv-browser">
+                    <div className="bar">
+                      <i />
+                      <i />
+                      <i />
+                    </div>
+                    <img src={p.browserImage} width={1600} height={1000} alt={`${p.name}の画面`} loading={i ? "lazy" : "eager"} />
                   </div>
-                  <img src={p.browserImage} width={1600} height={1000} alt={`${p.name}の画面`} loading={i ? "lazy" : "eager"} />
+                  <div className="hv-phone">
+                    <img src={p.phoneImage} width={780} height={1688} alt={`スマホで見た${p.name}の画面`} loading="lazy" />
+                  </div>
                 </div>
-                <div className="hv-phone">
-                  <img src={p.phoneImage} width={780} height={1688} alt={`スマホで見た${p.name}の画面`} loading="lazy" />
+              ) : (
+                <div className="hero-visual hv-phones">
+                  <div className="hv-ph">
+                    <img src={p.phoneImage} width={780} height={1688} alt={`${p.name}の画面`} loading="lazy" />
+                  </div>
+                  {p.phoneImage2 && (
+                    <div className="hv-ph">
+                      <img src={p.phoneImage2} width={780} height={1688} alt={`${p.name}の画面（2枚目）`} loading="lazy" />
+                    </div>
+                  )}
                 </div>
-              </div>
+              )}
             </div>
           </Link>
         </section>
