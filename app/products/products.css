@@ -207,3 +207,6 @@
 /* 固定ヘッダー（約72px）の下から始める */
 .pp .hero { padding-top: 136px; }
 @media (max-width: 900px) { .pp .hero { padding-top: 112px; } }
+
+/* 一覧のカードではモック画像だけ .pp を使う＝背景はカード側の色を見せる */
+.pp:not(main) { background: transparent; }
