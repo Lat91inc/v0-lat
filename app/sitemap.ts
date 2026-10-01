@@ -28,6 +28,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE_URL}/service`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE_URL}/products`, lastModified: new Date("2026-10-01"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/products/baramaki-ai`, lastModified: new Date("2026-10-01"), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/products/insta-lead-ai`, lastModified: new Date("2026-10-01"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/company`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/contact`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/media`, lastModified, changeFrequency: "weekly", priority: 0.7 },

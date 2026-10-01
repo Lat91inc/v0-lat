@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react"
 const navItems = [
   { label: "理念", href: "/philosophy" },
   { label: "サービス", href: "/service" },
+  { label: "プロダクト", href: "/products" },
   { label: "メディア", href: "/media" },
   { label: "企業情報", href: "/company" },
   { label: "お問い合わせ", href: "/contact" },
