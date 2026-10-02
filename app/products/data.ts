@@ -44,7 +44,7 @@ export const products: Product[] = [
   {
     slug: "talksite-ai",
     name: "Talksite AI",
-    catch: "ホームページの作成と修正を\nAIに頼めます",
+    catch: "AIと会話するだけで\nホームページ制作",
     summary:
       "会社についての質問に答えると、AIが構成・文章・デザインの入ったサイトを作ります。できたサイトは、直したい部分を選んで文章で指示すると修正できます。",
     description:
