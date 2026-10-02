@@ -38,9 +38,7 @@
 .pp .hero p.lead { color: var(--ink-3); font-size: 16px; line-height: 1.9; margin-top: 28px; max-width: 560px; }
 /* ジャンル・機能のタグ。一覧ページ（.pp の外）でも使うので .pp で囲まない */
 .ptags { display: grid; gap: 10px; margin-top: 30px; }
-.ptags-row { display: grid; grid-template-columns: 64px 1fr; align-items: start; }
-.ptags-items { display: flex; flex-wrap: wrap; gap: 6px; }
-.ptags-label { padding-top: 7px; line-height: 1; font-size: 11px; font-weight: 600; color: #8a8a8a; letter-spacing: .08em; }
+.ptags-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .ptag { font-size: 12px; font-weight: 600; line-height: 1; padding: 7px 10px; border-radius: 4px; white-space: nowrap; }
 .ptag--genre { background: #171717; color: #fff; }
 .ptag--feature { background: #f1f1f1; color: #2b2b2b; }

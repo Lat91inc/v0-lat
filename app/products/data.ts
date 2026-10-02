@@ -24,7 +24,7 @@ export const products: Product[] = [
     description:
       "一言メモを書くだけで、AIがSNSごとの投稿文を書き分け、承認するとX・Instagram・TikTokなど8つのSNSへ一斉配信。実店舗のためのSNS投稿AI「Baramaki AI」。",
     genres: ["SNSマーケティング", "実店舗マーケティング"],
-    features: ["SNS一斉配信", "AI投稿生成", "複数店舗管理"],
+    features: ["SNS一斉配信", "AI投稿生成"],
     browserImage: "/products/img/baramaki-compose.jpg",
     phoneImage: "/products/img/baramaki-m-approve-ig.jpg",
   },
@@ -84,7 +84,7 @@ export const products: Product[] = [
 
 // 個別ページの本文（_content/*.html）の <!--TAGS--> に差し込む。中身は上の定数だけ（外部入力は通らない）
 export function tagsHtml(p: Product) {
-  const row = (label: string, items: string[], cls: string) =>
-    `<div class="ptags-row"><span class="ptags-label">${label}</span><span class="ptags-items">${items.map((t) => `<span class="ptag ${cls}">${t}</span>`).join("")}</span></div>`
-  return `<div class="ptags">${row("ジャンル", p.genres, "ptag--genre")}${row("機能", p.features, "ptag--feature")}</div>`
+  const row = (items: string[], cls: string) =>
+    `<div class="ptags-row">${items.map((t) => `<span class="ptag ${cls}">${t}</span>`).join("")}</div>`
+  return `<div class="ptags">${row(p.genres, "ptag--genre")}${row(p.features, "ptag--feature")}</div>`
 }
