@@ -33,11 +33,11 @@ export const products: Product[] = [
     name: "Insta Lead AI",
     catch: "近くの見込み客を\nリストでお届け",
     summary:
-      "ハッシュタグか場所を指定するだけで、近くの見込み客をInstagramから集めてリストにします。プロフィールと見つけた投稿を添えて、画面とCSVでお届けします。",
+      "ハッシュタグか場所を指定するだけで、近くの見込み客やインフルエンサーをInstagramから集めてリストにします。プロフィールと見つけた投稿を添えて、画面とExcelで開けるファイルでお届けします。",
     description:
-      "ハッシュタグを指定するだけで、商圏の見込み客をInstagramから集めてリスト化。店舗集客のためのリスト作成AI「Insta Lead AI」。",
+      "ハッシュタグか場所を指定するだけで、商圏の見込み客やインフルエンサーをInstagramから集めてリスト化。DM営業やギフティング先選びのためのリスト作成AI「Insta Lead AI」。",
     genres: ["Instagramマーケティング", "実店舗マーケティング"],
-    features: ["見込み客リスト作成", "ハッシュタグ・場所検索", "CSV出力"],
+    features: ["見込み客リスト作成", "インフルエンサー探し", "ハッシュタグ・場所検索"],
     browserImage: "/products/img/il-job.jpg",
     phoneImage: "/products/img/il-m-job.jpg",
   },
@@ -70,7 +70,7 @@ export const products: Product[] = [
   {
     slug: "maneku-ai",
     name: "Maneku AI",
-    catch: "次にやる集客を\nAIが順番に並べます",
+    catch: "集客施策\n次に何をやるかもう迷わない",
     summary:
       "Googleマップの店舗情報や口コミ、近くの競合、地域の新しい情報を読み取り、いま手をつけるべき集客を優先度の高い順に並べます。口コミへの返信や投稿は、AIが下書きを作ります。",
     description:
