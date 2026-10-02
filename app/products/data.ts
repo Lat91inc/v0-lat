@@ -70,13 +70,13 @@ export const products: Product[] = [
   {
     slug: "maneku-ai",
     name: "Maneku AI",
-    catch: "集客施策\n次に何をやるかもう迷わない",
+    catch: "店舗集客\n次の一手にもう迷わない",
     summary:
       "Googleマップの店舗情報や口コミ、近くの競合、地域の新しい情報を読み取り、いま手をつけるべき集客を優先度の高い順に並べます。口コミへの返信や投稿は、AIが下書きを作ります。",
     description:
       "Maneku AIは、実店舗の集客をまとめて管理する店舗向けのツールです。店舗情報や口コミ、近くの競合、地域の新着情報をもとに、次にやることを優先度の順に並べ、返信や投稿の下書きをAIが作ります。",
-    genres: ["実店舗マーケティング", "Googleマップ対策"],
-    features: ["集客タスク提案", "口コミ返信", "地域リサーチ"],
+    genres: ["実店舗マーケティング", "Googleマップ対策", "MEO"],
+    features: ["施策リコメンド", "口コミ返信", "競合リサーチ"],
     browserImage: "/products/img/maneku-recommend.jpg",
     phoneImage: "/products/img/maneku-m-recommend.jpg",
   },
