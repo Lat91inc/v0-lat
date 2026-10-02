@@ -8,7 +8,7 @@ import { products } from "./data"
 import "./products.css"
 
 const description =
-  "株式会社Lat91が開発・提供するプロダクトの一覧。店舗のSNS配信を自動化するBaramaki AI、Instagramから商圏の見込み客リストを作るInsta Lead AI、AIでサイトを生成するTalksite AI、レシートキャンペーンプラットフォームのTREAL、店舗の集客でやることを優先度の順に並べるManeku AI。"
+  "株式会社Lat91が開発・提供するプロダクトの一覧。店舗のSNS配信を自動化するBaramaki AI、Instagramから商圏の見込み客リストを作るInsta Lead AI、AIでサイトを生成するTalksite AI、店頭での購買を促進するTREAL、店舗の集客でやることを優先度の順に並べるManeku AI。"
 
 export const metadata = createPageMetadata({ title: "プロダクト", description, path: "/products" })
 
