@@ -61,4 +61,16 @@ export const products: Product[] = [
     phoneImage: "/products/img/treal-m-fv.jpg",
     phoneImage2: "/products/img/treal-m-list.jpg",
   },
+  {
+    slug: "maneku-ai",
+    name: "Maneku AI",
+    catch: "次にやる集客を\nAIが順番に並べます",
+    summary:
+      "Googleマップの店舗情報や口コミ、近くの競合、地域の新しい情報を読み取り、いま手をつけるべき集客を優先度の高い順に並べます。口コミへの返信や投稿は、AIが下書きを作ります。",
+    description:
+      "Maneku AIは、実店舗の集客をまとめて管理する店舗向けのツールです。店舗情報や口コミ、近くの競合、地域の新着情報をもとに、次にやることを優先度の順に並べ、返信や投稿の下書きをAIが作ります。",
+    pills: ["店舗集客", "Googleマップ対策", "口コミ返信", "地域リサーチ"],
+    browserImage: "/products/img/maneku-recommend.jpg",
+    phoneImage: "/products/img/maneku-m-recommend.jpg",
+  },
 ]
