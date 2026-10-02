@@ -36,8 +36,15 @@
 .pp .hero p.lead { text-wrap: balance; }
 .pp .hero p.lead + p.lead { margin-top: 12px; }
 .pp .hero p.lead { color: var(--ink-3); font-size: 16px; line-height: 1.9; margin-top: 28px; max-width: 560px; }
-.pp .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
-.pp .pill { border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 500; color: var(--ink); background: #fff; }
+/* ジャンル・機能のタグ。一覧ページ（.pp の外）でも使うので .pp で囲まない */
+.ptags { display: grid; gap: 10px; margin-top: 30px; }
+.ptags-row { display: grid; grid-template-columns: 64px 1fr; align-items: start; }
+.ptags-items { display: flex; flex-wrap: wrap; gap: 6px; }
+.ptags-label { padding-top: 7px; line-height: 1; font-size: 11px; font-weight: 600; color: #8a8a8a; letter-spacing: .08em; }
+.ptag { font-size: 12px; font-weight: 600; line-height: 1; padding: 7px 10px; border-radius: 4px; white-space: nowrap; }
+.ptag--genre { background: #171717; color: #fff; }
+.ptag--feature { background: #f1f1f1; color: #2b2b2b; }
+.ptag--feature::before { content: "#"; margin-right: 2px; color: #9a9a9a; font-weight: 500; }
 .pp .hero { overflow: hidden; }
 .pp .hero-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; align-items: center; }
 .pp .hero-visual { position: relative; padding: 40px 0 56px 56px; }
@@ -45,13 +52,12 @@
     background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
     background-size: 40px 40px; -webkit-mask-image: radial-gradient(ellipse at 55% 50%, #000 20%, transparent 70%); mask-image: radial-gradient(ellipse at 55% 50%, #000 20%, transparent 70%); }
 .pp .hv-browser { position: relative; z-index: 1; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff;
-    transform: perspective(1800px) rotateY(-10deg) rotateX(4deg); transform-origin: left center;
     box-shadow: 0 50px 100px -30px rgba(0,0,0,.28), 0 20px 40px -20px rgba(0,0,0,.18); }
 .pp .hv-browser .bar { height: 26px; background: var(--bg-muted); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 6px; padding: 0 12px; }
 .pp .hv-browser .bar i { width: 8px; height: 8px; border-radius: 50%; background: #d4d4d4; }
 .pp .hero-visual img { display: block; width: 100%; height: auto; }
 .pp .hv-phone { position: absolute; left: 0; bottom: 0; width: 27%; z-index: 2; border: 7px solid var(--ink); border-radius: 13% / 6%; overflow: hidden; background: var(--ink);
-    transform: perspective(1800px) rotateY(-10deg); box-shadow: 0 40px 80px -24px rgba(0,0,0,.45); }
+    box-shadow: 0 40px 80px -24px rgba(0,0,0,.45); }
 .pp .hv-chip { position: absolute; z-index: 3; background: rgba(255,255,255,.96); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px;
     box-shadow: 0 16px 32px -16px rgba(0,0,0,.25); font-size: 12px; line-height: 1.5; white-space: nowrap; }
 .pp .hv-chip .mono { font-size: 10px; display: block; }
@@ -99,7 +105,7 @@
 .pp .vs li b { font-size: 14px; font-weight: 700; display: block; }
 .pp .vs li span { font-size: 12px; color: var(--ink-3); }
 .pp .vs .dark li span { color: #a8a8a8; }
-.pp .vs .mid { display: grid; place-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-4); writing-mode: vertical-rl; letter-spacing: .2em; }
+.pp .vs .mid { display: grid; place-items: center; font-family: var(--mono); font-size: 11px; color: var(--ink-4); letter-spacing: .2em; }
 .pp .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .pp .feat { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 28px; }
 .pp .feat .num { font-size: 40px; font-weight: 700; color: #e0e0e0; letter-spacing: -0.04em; line-height: 1; }
@@ -141,12 +147,14 @@
 .pp .sns--youtube { background: #ff0000; }
 .pp .fan { display: grid; grid-template-columns: 160px 1fr 236px; grid-template-rows: 416px; }
 .pp .fan-src { position: relative; display: flex; align-items: center; }
-.pp .fan-draft { position: absolute; left: 0; right: 0; bottom: calc(50% + 44px); border: 1px solid var(--line); background: var(--bg-soft); border-radius: 10px; padding: 12px 14px; }
+.pp .fan-draft { position: absolute; left: 0; right: 0; bottom: calc(50% + 64px); border: 1px solid var(--line); background: var(--bg-soft); border-radius: 10px; padding: 12px 14px; }
 .pp .fan-draft .mono { font-size: 10px; display: block; }
 .pp .fan-draft b { display: block; font-size: 13px; margin-top: 4px; }
 .pp .fan-draft span { display: block; font-size: 11px; color: var(--ink-3); margin-top: 2px; }
-.pp .fan-approve { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--ink); color: #fff; border-radius: 999px; padding: 14px 16px; font-size: 14px; font-weight: 700; box-shadow: 0 12px 24px -12px rgba(0,0,0,.5); }
-.pp .fan-approve i { font-style: normal; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: var(--ink); display: grid; place-items: center; font-size: 12px; }
+.pp .fan-draft::after { content: "↓"; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); padding-top: 6px; font-family: var(--mono); font-size: 13px; line-height: 1; color: var(--ink-4); }
+.pp .fan-ai { width: 100%; background: var(--ink); color: #fff; border-radius: 10px; padding: 12px 14px; box-shadow: 0 12px 24px -12px rgba(0,0,0,.5); }
+.pp .fan-ai .mono { font-size: 10px; display: block; color: #a8a8a8; }
+.pp .fan-ai b { display: block; font-size: 13px; margin-top: 4px; }
 .pp .fan-lines { width: 100%; height: 416px; display: block; overflow: visible; }
 .pp .fan-lines path { fill: none; stroke: #c8c8c8; stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-dasharray: 4 5; animation: pp-flow 1.2s linear infinite; }
 @keyframes pp-flow { to { stroke-dashoffset: -18; } }
@@ -180,7 +188,6 @@
 .pp .flow { grid-template-columns: repeat(2, 1fr); gap: 20px 16px; }
 .pp .step::after { display: none; }
 .pp .vs { grid-template-columns: 1fr; }
-.pp .vs .mid { writing-mode: horizontal-tb; }
 .pp .vs .side { padding: 28px 24px; }
 .pp .screens { gap: 64px; }
 .pp .scr, .pp .scr.rev { grid-template-columns: 1fr; gap: 24px; }
@@ -193,8 +200,8 @@
 .pp .scr-pair { grid-template-columns: 1fr 96px; gap: 10px; }
 .pp .scr-pair .phone { border-width: 4px; border-radius: 13% / 6%; }
 .pp .fan { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
-.pp .fan-src { flex-direction: column; gap: 12px; }
-.pp .fan-draft { position: static; width: 100%; }
+.pp .fan-src { flex-direction: column; gap: 28px; }
+.pp .fan-draft { position: relative; bottom: auto; width: 100%; }
 .pp .fan-lines { display: none; }
 .pp .fan-down { display: block; text-align: center; color: var(--ink-4); font-family: var(--mono); padding: 10px 0; }
 .pp .fan-dst { grid-template-rows: none; grid-template-columns: 1fr 1fr; gap: 10px 8px; }
@@ -214,7 +221,7 @@
 /* スマホ専用プロダクト（TREAL）＝ブラウザ枠の代わりにスマホ2台を並べる */
 .pp .hero-visual.hv-phones { display: flex; justify-content: center; align-items: flex-start; gap: 6%; padding: 24px 0 56px; }
 .pp .hv-ph { position: relative; z-index: 1; width: 37%; border: 8px solid var(--ink); border-radius: 13% / 6%; overflow: hidden; background: var(--ink);
-    transform: perspective(1800px) rotateY(-10deg) rotateX(3deg); box-shadow: 0 50px 100px -30px rgba(0,0,0,.35), 0 20px 40px -20px rgba(0,0,0,.2); }
+    box-shadow: 0 50px 100px -30px rgba(0,0,0,.35), 0 20px 40px -20px rgba(0,0,0,.2); }
 .pp .hv-ph + .hv-ph { margin-top: 9%; }
 @media (max-width: 900px) {
 .pp .hero-visual.hv-phones { padding: 16px 0 32px; }

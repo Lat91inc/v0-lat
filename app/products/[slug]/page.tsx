@@ -6,7 +6,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
-import { products } from "../data"
+import { products, tagsHtml } from "../data"
 import "../products.css"
 
 export const dynamicParams = false
@@ -29,7 +29,10 @@ export default async function ProductPage({ params }: Props) {
   const p = products.find((x) => x.slug === slug)
   if (!p) notFound()
   // 自社で書いた静的な本文（ユーザー入力は通らない）。ビルド時に読み込んで静的に出す
-  const html = readFileSync(path.join(process.cwd(), "app/products/_content", `${p.slug}.html`), "utf8")
+  const html = readFileSync(path.join(process.cwd(), "app/products/_content", `${p.slug}.html`), "utf8").replace(
+    "<!--TAGS-->",
+    tagsHtml(p),
+  )
 
   return (
     <div className="bg-white min-h-screen">

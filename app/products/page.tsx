@@ -58,14 +58,23 @@ export default function ProductsPage() {
                 {p.catch}
               </h2>
               <p className="text-[14px] text-neutral-500 leading-[2] mt-6 max-w-[460px] [text-wrap:pretty]">{p.summary}</p>
-              <div className="flex flex-wrap gap-2 mt-7">
-                {p.pills.map((pill) => (
-                  <span
-                    key={pill}
-                    className="text-[12px] font-medium text-neutral-600 px-4 py-[7px] rounded-full border border-neutral-200 bg-white"
-                  >
-                    {pill}
-                  </span>
+              <div className="ptags">
+                {(
+                  [
+                    ["ジャンル", p.genres, "ptag--genre"],
+                    ["機能", p.features, "ptag--feature"],
+                  ] as const
+                ).map(([label, items, cls]) => (
+                  <div key={label} className="ptags-row">
+                    <span className="ptags-label">{label}</span>
+                    <span className="ptags-items">
+                      {items.map((t) => (
+                        <span key={t} className={`ptag ${cls}`}>
+                          {t}
+                        </span>
+                      ))}
+                    </span>
+                  </div>
                 ))}
               </div>
               <span className="inline-flex items-center gap-2 mt-9 text-sm font-medium text-neutral-900 border-b border-neutral-900 pb-1">
