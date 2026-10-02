@@ -36,9 +36,9 @@ export default function ProductsPage() {
             プロダクト
           </h1>
           <p className="text-[15px] text-neutral-500 leading-[2] max-w-[520px] [word-break:auto-phrase]">
-            集客・発信・販促を支えるプロダクト。
+            店舗集客・SNS発信・Web制作・販促キャンペーンまで。
             <br />
-            どれも、現場の担当者が毎日使う画面から設計しています。
+            専門知識がなくても、現場の担当者がAIで回せるプロダクトです。
           </p>
         </div>
       </section>

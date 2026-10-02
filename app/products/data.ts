@@ -48,7 +48,7 @@ export const products: Product[] = [
     summary:
       "作りたいページについてAIと会話することで、AIが構成からWebサイトを作ります。できたサイトは、直したい部分を選んで文章で指示すると修正でき、ツール上からワンクリックで公開も可能です。",
     description:
-      "Talksite AIは、会社のホームページをAIで作るサービスです。質問に答えるか、いまのサイトのURLを入力するとサイトを生成し、編集画面でAIに指示して修正できます。",
+      "Talksite AIは、ホームページやLPをAIで作るサービスです。作りたいページについてAIと会話するか、いまのサイトのURLを入力するとサイトを生成し、編集画面でAIに指示して修正できます。",
     genres: ["Web制作", "LP制作"],
     features: ["AIサイト生成", "企業ホームページ", "採用サイト", "サービスLP"],
     browserImage: "/products/img/talksite-editor.jpg",
