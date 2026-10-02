@@ -107,6 +107,23 @@
 .pp .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .pp .feat { border: 1px solid var(--line); border-radius: 16px; background: #fff; padding: 28px; }
 .pp .feat .num { font-size: 40px; font-weight: 700; color: #e0e0e0; letter-spacing: -0.04em; line-height: 1; }
+.pp .feat-top { display: flex; align-items: center; justify-content: space-between; }
+.pp .feat .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--bg-muted); color: var(--ink); display: grid; place-items: center; }
+.pp .feat .ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pp .feat .feat-top .num { font-size: 28px; }
+.pp .case { display: flex; flex-direction: column; }
+.pp .case-who { width: fit-content; font-size: 12px; font-weight: 700; color: #fff; background: var(--ink); border-radius: 4px; padding: 5px 10px; }
+.pp .case h3 { line-height: 1.5; }
+.pp .case > p { margin-bottom: 18px; }
+.pp .case-ex { margin-top: auto; padding-top: 16px; border-top: 1px dashed var(--line); font-size: 12.5px; line-height: 1.8; color: var(--ink-2); }
+.pp .case-ex > span:first-child { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .15em; color: var(--ink-4); margin-bottom: 4px; }
+.pp .datagrid ul { list-style: none; margin-top: 14px; display: grid; gap: 8px; font-size: 13px; color: var(--ink-3); }
+.pp .datagrid li { display: grid; grid-template-columns: 14px 1fr; gap: 6px; line-height: 1.6; }
+.pp .datagrid li::before { content: "—"; color: var(--ink-4); font-family: var(--mono); }
+.pp .datagrid .feat h3 { margin-top: 0; }
+.pp .scr-stack { display: grid; gap: 20px; }
+.pp .scr-stack figure { margin: 0; }
+.pp .scr-stack figcaption { font-size: 12px; color: var(--ink-3); text-align: center; margin-top: 10px; }
 .pp .feat h3 { font-size: 17px; font-weight: 700; margin-top: 20px; }
 .pp .feat p { font-size: 13px; color: var(--ink-3); line-height: 1.9; margin-top: 10px; }
 .pp .screens { display: grid; gap: 96px; }
