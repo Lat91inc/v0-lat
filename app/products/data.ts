@@ -57,7 +57,7 @@ export const products: Product[] = [
   {
     slug: "treal",
     name: "TREAL",
-    catch: "商品を買った人の声を集める\nレシートキャンペーン",
+    catch: "オフライン購買を促進する\n消費者リサーチ",
     summary:
       "メーカーやブランドが、PR・調査・ギフティングのキャンペーンを行うためのプラットフォームです。参加者は対象の商品を買ってレシートとアンケートを送り、審査のあとに報酬を受け取ります。",
     description:
