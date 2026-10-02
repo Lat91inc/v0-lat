@@ -33,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/products/insta-lead-ai`, lastModified: new Date("2026-10-01"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/products/talksite-ai`, lastModified: new Date("2026-10-01"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/products/treal`, lastModified: new Date("2026-10-01"), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/products/maneku-ai`, lastModified: new Date("2026-10-02"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/company`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/contact`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/media`, lastModified, changeFrequency: "weekly", priority: 0.7 },
