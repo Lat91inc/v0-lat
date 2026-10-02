@@ -61,19 +61,16 @@ export default function ProductsPage() {
               <div className="ptags">
                 {(
                   [
-                    ["ジャンル", p.genres, "ptag--genre"],
-                    ["機能", p.features, "ptag--feature"],
+                    [p.genres, "ptag--genre"],
+                    [p.features, "ptag--feature"],
                   ] as const
-                ).map(([label, items, cls]) => (
-                  <div key={label} className="ptags-row">
-                    <span className="ptags-label">{label}</span>
-                    <span className="ptags-items">
-                      {items.map((t) => (
-                        <span key={t} className={`ptag ${cls}`}>
-                          {t}
-                        </span>
-                      ))}
-                    </span>
+                ).map(([items, cls]) => (
+                  <div key={cls} className="ptags-row">
+                    {items.map((t) => (
+                      <span key={t} className={`ptag ${cls}`}>
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 ))}
               </div>
