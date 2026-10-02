@@ -37,9 +37,8 @@ export default function PhilosophyPage() {
           <div className="w-12 h-px bg-neutral-900" />
           <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400 uppercase">Philosophy</span>
         </div>
-        <h1 className="text-[clamp(36px,5vw,60px)] font-bold leading-[1.25] tracking-[-0.03em] text-neutral-900">
-          {"AI\u6642\u4EE3\u306B\u3001"}<br />
-          {"\u4EBA\u9593\u306E\u610F\u5FD7\u3068\u5275\u9020\u304C\u8F1D\u304F\u4E16\u754C\u3092\u5275\u308B"}
+        <h1 className="text-[clamp(36px,5vw,60px)] font-bold leading-[1.25] tracking-[-0.03em] text-neutral-900 [word-break:auto-phrase] [text-wrap:balance]">
+          {"AI\u6642\u4EE3\u306B\u4EBA\u9593\u306E\u610F\u5FD7\u3068\u5275\u9020\u304C\u8F1D\u304F\u4E16\u754C\u3092\u5275\u308B"}
         </h1>
         <p className="text-[15px] text-neutral-500 leading-[2] mt-8">
           {"\u30C6\u30AF\u30CE\u30ED\u30B8\u30FC\u304C\u4EBA\u306E\u53EF\u80FD\u6027\u3092\u62E1\u5F35\u3059\u308B\u6642\u4EE3\u3002\u79C1\u305F\u3061\u306F\u3001AI\u306B\u4EFB\u305B\u3089\u308C\u308B\u3053\u3068\u3092\u6B63\u3057\u304F\u4EFB\u305B\u3001"}<br />
@@ -68,7 +67,7 @@ export default function PhilosophyPage() {
           </div>
 
           <p className="text-[clamp(22px,3vw,32px)] font-bold leading-[1.7] tracking-[-0.02em] text-neutral-900 text-center">
-            {"AI\u306B\u4EFB\u305B\u3001\u4EBA\u306E\u7D14\u5EA6\u306B\u5411\u304D\u5408\u3046\u3002"}<br />
+            {"AI\u306B\u4EFB\u305B\u3066\u4EBA\u306E\u7D14\u5EA6\u306B\u5411\u304D\u5408\u3046"}<br />
             {"\u30D2\u30E5\u30FC\u30DE\u30F3\u30D5\u30A1\u30FC\u30B9\u30C8\u306E\u6642\u4EE3\u3078"}
           </p>
 

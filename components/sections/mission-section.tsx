@@ -34,7 +34,7 @@ export function MissionSection() {
           <div className="lg:col-span-7">
             <h2 className="text-[clamp(28px,4vw,48px)] font-bold leading-[1.4] text-neutral-900 tracking-tight">
               <span className="block text-[#999]">すべての人と企業に</span>
-              <span className="block">デジタルレイバーを。</span>
+              <span className="block">デジタルレイバーを</span>
               <span className="block text-[#999]">AI時代の確かな</span>
               <span className="block">産業インフラをつくる</span>
             </h2>

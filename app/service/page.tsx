@@ -18,7 +18,7 @@ const services = [
     titleJa: "セールス",
     description: "見込み客の発見から商談化まで、営業プロセスを一気通貫で自動化。貴社の営業担当者が、価値提案と関係構築に集中できる仕組みを提供します。",
     capabilities: ["リサーチ・リスト作成", "アプローチ", "商談", "パイプライン管理", "ナーチャリング"],
-    leftHeadline: "営業担当者の時間を、\n本当に価値ある活動へ。",
+    leftHeadline: "営業担当者の時間を本当に価値ある活動へ",
     leftText: "リスト作成やメール送信に費やしていた時間をゼロに。AIがリサーチから商談設定までを完走し、営業は価値提案やリレーション構築に集中できます。",
     stats: [
       { value: "70%", label: "作業時間削減" },
@@ -43,7 +43,7 @@ const services = [
     titleJa: "マーケティング",
     description: "リサーチ、クリエイティブ作成、運用業務、レポーティングまで、マーケティング業務をAIが遂行。データに基づく施策立案や実行、改善検証を、自律的に回し続ける仕組みを提供します。",
     capabilities: ["市場・競合リサーチ", "コンテンツ生成", "広告運用最適化", "SNS運用", "レポーティング", "リード育成"],
-    leftHeadline: "施策のPDCAを、\nAIが24時間回し続ける。",
+    leftHeadline: "施策のPDCAをAIが24時間回し続ける",
     leftText: "市場の反応や顧客の反応から仮説を立て、クリエイティブの生成から施策実施、検証、学習までのグロースサイクルを円滑化させます。",
     stats: [
       { value: "5x", label: "コンテンツ生産量" },
@@ -67,7 +67,7 @@ const services = [
     titleJa: "カスタマーサポート",
     description: "自動化し、本当に必要な対応だけに集中。顧客満足度を上げ、サポートコストを大幅に圧縮する仕組みを提供します。",
     capabilities: ["問い合わせ自動対応", "FAQ自動生成", "エスカレーション判定", "VOC分析", "多言語対応"],
-    leftHeadline: "対応品質を上げながら、\nコストを下げる。",
+    leftHeadline: "対応品質を上げながらコストを下げる",
     leftText: "AIが問い合わせを分類・回答し、確信度が低い案件だけ人にエスカレ。全件の対応結果がナレッジに還元され、精度は使うほど向上します。",
     stats: [
       { value: "80%", label: "自動対応率" },
@@ -90,7 +90,7 @@ const services = [
     titleJa: "バックオフィス",
     description: "経理・人事・総務の定型業務をAIが代行し、管理部門を最小化。人は判断と例外対応に集中する体制をつくる。",
     capabilities: ["経費精算・請求処理", "入退社手続き", "契約書レビュー", "勤怠管理", "備品・設備管理"],
-    leftHeadline: "管理部門の「作業」を\n限りなくゼロへ。",
+    leftHeadline: "管理部門の「作業」を\n限りなくゼロへ",
     leftText: "請求書の読み取りから仕訳、承認フロー、会計ソフト連携まで、一連の経理プロセスを人の手を介さずに完走。月次決算のスピードが劇的に変わります。",
     stats: [
       { value: "95%", label: "入力作業削減" },
@@ -469,7 +469,7 @@ export default function ServicePage() {
             <div className="grid lg:grid-cols-[35%_1fr] gap-14 items-start">
               {/* Left - Text Content */}
               <div>
-                <p className="text-[20px] font-semibold text-neutral-900 tracking-[-0.01em] leading-[1.6] mb-4 whitespace-pre-line">
+                <p className="text-[20px] font-semibold text-neutral-900 tracking-[-0.01em] leading-[1.6] mb-4 whitespace-pre-line [word-break:auto-phrase] [text-wrap:balance]">
                   {service.leftHeadline}
                 </p>
                 <p className="text-[13px] text-neutral-500 leading-[2] mb-9">
