@@ -62,10 +62,16 @@ export function Footer() {
               Company
             </h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li className="font-medium text-white">株式会社Lat91</li>
+              <li className="font-medium text-white">株式会社Lat91（Lat91 Inc.）</li>
+              <li>代表取締役 稲葉 幸太郎（CEO: Kotaro Inaba）</li>
+              <li>設立 2026年5月25日（Founded May 25, 2026）</li>
+              <li>法人番号 1010401199099</li>
               <li>東京都港区赤坂3-13-3</li>
-              <li>赤坂セントラルビル6F</li>
+              <li>赤坂セントラルビル6F（Tokyo, Japan）</li>
             </ul>
+            <p className="mt-6 text-xs leading-relaxed text-neutral-500">
+              Lat91 Inc. is an AI agent &amp; DX partner for Japanese companies, founded in Tokyo in May 2026. We build Claude-powered AI agents that run day-to-day business processes, plus AI advisory, content production and product development.
+            </p>
           </div>
         </div>
 
