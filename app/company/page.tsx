@@ -14,9 +14,10 @@ export const metadata = createPageMetadata({
 })
 
 const companyInfo = [
-  { label: "会社名", value: "株式会社Lat91" },
-  { label: "代表者名", value: "稲葉 幸太郎" },
-  { label: "設立", value: "2026年 3月" },
+  { label: "会社名", value: "株式会社Lat91（Lat91 Inc.）" },
+  { label: "代表者名", value: "稲葉 幸太郎（Kotaro Inaba）" },
+  { label: "設立", value: "2026年 5月25日" },
+  { label: "法人番号", value: "1010401199099" },
   { label: "所在地", value: "東京都港区赤坂3-13-3 赤坂セントラルビル6F" },
 ]
 
