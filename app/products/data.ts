@@ -77,8 +77,8 @@ export const products: Product[] = [
       "Maneku AIは、実店舗の集客をまとめて管理する店舗向けのツールです。店舗情報や口コミ、近くの競合、地域の新着情報をもとに、次にやることを優先度の順に並べ、返信や投稿の下書きをAIが作ります。",
     genres: ["実店舗マーケティング", "Googleマップ対策", "MEO"],
     features: ["施策リコメンド", "口コミ返信", "競合リサーチ"],
-    browserImage: "/products/img/maneku-recommend.jpg",
-    phoneImage: "/products/img/maneku-m-recommend.jpg",
+    browserImage: "/products/img/maneku-dashboard.jpg",
+    phoneImage: "/products/img/maneku-m-dashboard.jpg",
   },
 ]
 
