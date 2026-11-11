@@ -1,11 +1,7 @@
-"use client"
-
+import { formatArticleDate } from "@/lib/media-navigation"
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
-import useSWR from "swr"
-import type { Article, ArticleResponse } from "@/lib/microcms/types"
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+import { getArticleCards } from "@/lib/microcms/articles"
 
 // カテゴリ表示用のマッピング
 const categoryLabels: Record<string, string> = {
@@ -16,21 +12,10 @@ const categoryLabels: Record<string, string> = {
 }
 
 // 日付フォーマット
-function formatDate(dateString: string) {
-  const date = new Date(dateString)
-  const year = date.getFullYear()
-  const month = String(date.getMonth() + 1).padStart(2, "0")
-  const day = String(date.getDate()).padStart(2, "0")
-  return `${year}.${month}.${day}`
-}
 
-export function MediaSection() {
-  const { data, error, isLoading } = useSWR<ArticleResponse>(
-    "/api/media?limit=3",
-    fetcher
-  )
 
-  const articles = data?.contents || []
+export async function MediaSection() {
+  const { contents: articles } = await getArticleCards(1, "all", 3)
 
   return (
     <section className="relative bg-neutral-50 py-32 md:py-40 px-6 md:px-12">
@@ -59,24 +44,8 @@ export function MediaSection() {
           </Link>
         </div>
 
-        {/* Loading State */}
-        {isLoading && (
-          <div className="grid md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden animate-pulse">
-                <div className="aspect-[16/10] bg-neutral-200" />
-                <div className="p-6">
-                  <div className="h-3 bg-neutral-200 rounded w-20 mb-3" />
-                  <div className="h-4 bg-neutral-200 rounded w-full mb-2" />
-                  <div className="h-4 bg-neutral-200 rounded w-3/4" />
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Articles Grid */}
-        {!isLoading && articles.length > 0 && (
+        {articles.length > 0 && (
           <div className="grid md:grid-cols-3 gap-6">
             {articles.map((article, index) => (
               <Link
@@ -117,7 +86,7 @@ export function MediaSection() {
                   {/* Content */}
                   <div className="p-6">
                     <span className="font-mono text-xs text-neutral-400 mb-3 block">
-                      {formatDate(article.publishedAt || article.createdAt)}
+                      {formatArticleDate(article.publishedAt || article.createdAt)}
                     </span>
                     <h3 className="text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors">
                       {article.title}
@@ -130,7 +99,7 @@ export function MediaSection() {
         )}
 
         {/* Empty State */}
-        {!isLoading && articles.length === 0 && (
+        {articles.length === 0 && (
           <div className="text-center py-16">
             <p className="text-neutral-500">記事がまだありません</p>
           </div>

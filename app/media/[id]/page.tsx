@@ -1,4 +1,6 @@
+import { formatArticleDate } from "@/lib/media-navigation"
 import type { Metadata } from "next"
+import { cache } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
@@ -21,19 +23,21 @@ export const revalidate = 60
 const FALLBACK_DESCRIPTION =
   "Lat91のメディア記事。AIエージェント・生成AI・DX推進に関する実践的な知見を発信します。"
 
-async function getArticle(id: string, draftKey?: string): Promise<Article | null> {
-  if (!client) return null
+const getArticle = cache(async (id: string, draftKey?: string): Promise<Article | null> => {
+  if (!client) throw new Error("microCMS is not configured")
   try {
     const article = await client.get<Article>({
       endpoint: "media",
       contentId: id,
       queries: draftKey ? { draftKey } : {},
+      customRequestInit: draftKey ? { cache: "no-store" } : { next: { revalidate: 60 } },
     })
     return article
-  } catch {
-    return null
+  } catch (error) {
+    if (error instanceof Error && /^fetch API response status: 404(?:\s|$)/.test(error.message)) return null
+    throw new Error("Failed to load article from microCMS")
   }
-}
+})
 
 function buildDescription(article: Article): string {
   if (article.summary && article.summary.trim().length > 0) {
@@ -132,13 +136,7 @@ async function getRelatedArticles(currentId: string, category: string): Promise<
   }
 }
 
-function formatDate(dateStr: string): string {
-  const d = new Date(dateStr)
-  const y = d.getFullYear()
-  const m = String(d.getMonth() + 1).padStart(2, "0")
-  const day = String(d.getDate()).padStart(2, "0")
-  return `${y}.${m}.${day}`
-}
+
 
 export default async function ArticlePage({
   params,
@@ -211,7 +209,7 @@ export default async function ArticlePage({
           <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-400">
             <span className="flex items-center gap-2">
               <Calendar size={14} />
-              {formatDate(article.publishedAt)}
+              {formatArticleDate(article.publishedAt)}
             </span>
             {article.readingTime && (
               <span className="flex items-center gap-2">

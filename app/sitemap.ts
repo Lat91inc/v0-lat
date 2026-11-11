@@ -1,28 +1,12 @@
 import type { MetadataRoute } from "next"
-import { client, type Article } from "@/lib/microcms/client"
+import { getSitemapArticles } from "@/lib/microcms/articles"
 
 const BASE_URL = "https://www.lat91.co.jp"
 
-async function getAllArticles(): Promise<Pick<Article, "id" | "publishedAt" | "updatedAt">[]> {
-  if (!client) return []
-  try {
-    const data = await client.getList<Article>({
-      endpoint: "media",
-      queries: {
-        fields: "id,publishedAt,updatedAt",
-        limit: 100,
-        orders: "-publishedAt",
-      },
-    })
-    return data.contents
-  } catch (e) {
-    console.error("sitemap: failed to fetch articles from microCMS:", e)
-    return []
-  }
-}
+export const revalidate = 60
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const articles = await getAllArticles()
+  const articles = await getSitemapArticles()
   const lastModified = new Date("2026-05-08")
 
   const staticRoutes: MetadataRoute.Sitemap = [

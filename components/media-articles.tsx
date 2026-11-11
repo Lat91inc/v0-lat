@@ -1,41 +1,14 @@
-"use client"
-
-import { useState } from "react"
+import { formatArticleDate } from "@/lib/media-navigation"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-import type { Article } from "@/lib/microcms/types"
+import type { ArticleCard } from "@/lib/microcms/articles"
+import { MEDIA_CATEGORIES, mediaPageHref } from "@/lib/media-navigation"
 
-const categories = [
-  { id: "all", label: "All" },
-  { id: "AIエージェント", label: "AIエージェント" },
-  { id: "AI活用", label: "AI活用" },
-  { id: "コラム", label: "コラム" },
-  { id: "ニュース", label: "ニュース" },
-]
 
-function formatDate(dateStr: string): string {
-  const d = new Date(dateStr)
-  const y = d.getFullYear()
-  const m = String(d.getMonth() + 1).padStart(2, "0")
-  const day = String(d.getDate()).padStart(2, "0")
-  return `${y}.${m}.${day}`
-}
 
-export function MediaArticles({ articles }: { articles: Article[] }) {
-  const [activeCategory, setActiveCategory] = useState("all")
-
-  const filtered =
-    activeCategory === "all"
-      ? articles
-      : articles.filter((a) => {
-          if (Array.isArray(a.category)) {
-            return a.category.includes(activeCategory)
-          }
-          return a.category === activeCategory
-        })
-
-  const featuredArticles = filtered.filter((a) => a.featured)
-  const regularArticles = filtered.filter((a) => !a.featured)
+export function MediaArticles({ articles, activeCategory }: { articles: ArticleCard[]; activeCategory: string }) {
+  const featuredArticles = articles.filter((a) => a.featured)
+  const regularArticles = articles.filter((a) => !a.featured)
 
   return (
     <>
@@ -43,10 +16,11 @@ export function MediaArticles({ articles }: { articles: Article[] }) {
       <section className="px-6 md:px-12 pb-16">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
-              <button
+            {MEDIA_CATEGORIES.map((cat) => (
+              <Link
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
+                href={mediaPageHref(1, cat.id)}
+                aria-current={activeCategory === cat.id ? "page" : undefined}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                   activeCategory === cat.id
                     ? "bg-neutral-900 text-white"
@@ -54,7 +28,7 @@ export function MediaArticles({ articles }: { articles: Article[] }) {
                 }`}
               >
                 {cat.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -75,6 +49,7 @@ export function MediaArticles({ articles }: { articles: Article[] }) {
                       {article.thumbnail ? (
                         <img
                           src={article.thumbnail.url}
+                          loading="lazy"
                           alt={article.title}
                           className="absolute inset-0 w-full h-full object-cover"
                         />
@@ -99,7 +74,7 @@ export function MediaArticles({ articles }: { articles: Article[] }) {
                     <div className="p-8">
                       <div className="flex items-center gap-4 mb-4">
                         <span className="font-mono text-xs text-neutral-400">
-                          {formatDate(article.publishedAt)}
+                          {formatArticleDate(article.publishedAt)}
                         </span>
                         {article.readingTime && (
                           <span className="font-mono text-xs text-neutral-400">
@@ -139,6 +114,7 @@ export function MediaArticles({ articles }: { articles: Article[] }) {
                       {article.thumbnail ? (
                         <img
                           src={article.thumbnail.url}
+                          loading="lazy"
                           alt={article.title}
                           className="absolute inset-0 w-full h-full object-cover"
                         />
@@ -157,7 +133,7 @@ export function MediaArticles({ articles }: { articles: Article[] }) {
                     </div>
                     <div className="p-6">
                       <span className="font-mono text-xs text-neutral-400">
-                        {formatDate(article.publishedAt)}
+                        {formatArticleDate(article.publishedAt)}
                       </span>
                       <h3 className="mt-3 text-base font-bold text-neutral-900 leading-relaxed group-hover:text-neutral-600 transition-colors line-clamp-2">
                         {article.title}
