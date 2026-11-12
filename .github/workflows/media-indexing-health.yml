@@ -1,0 +1,33 @@
+name: Media indexing health
+
+on:
+  schedule:
+    - cron: '17 23 * * *' # Every day at 08:17 JST
+  workflow_dispatch:
+  deployment_status:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.event_name != 'deployment_status' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check CMS count, sitemap, all listing pages and latest articles
+        shell: bash
+        run: python scripts/check-media-indexing.py 2>&1 | tee media-indexing-health.log
+      - name: Keep audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: media-indexing-health
+          path: media-indexing-health.log
+          retention-days: 30

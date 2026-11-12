@@ -1,5 +1,3 @@
-"use client"
-
 import { Header } from "@/components/header"
 import { FixedSectionsContainer } from "@/components/fixed-sections-container"
 import { ServiceSection } from "@/components/sections/service-section"
@@ -8,6 +6,8 @@ import { StrengthSection } from "@/components/sections/strength-section"
 import { CTASection } from "@/components/sections/cta-section"
 import { MediaSection } from "@/components/sections/media-section"
 import { Footer } from "@/components/footer"
+
+export const revalidate = 60
 
 export default function Home() {
   return (
