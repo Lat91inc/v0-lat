@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next"
 import { getSitemapArticles } from "@/lib/microcms/articles"
+import { getSitemapNews } from "@/lib/microcms/news"
 
 const BASE_URL = "https://www.lat91.co.jp"
 
 export const revalidate = 60
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const articles = await getSitemapArticles()
+  const [articles, news] = await Promise.all([getSitemapArticles(), getSitemapNews()])
   const lastModified = new Date("2026-05-08")
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -32,5 +33,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  return [...staticRoutes, ...articleRoutes]
+  // お知らせが0件のあいだは /news も載せない（中身の無いページを検索に出さない）
+  const newsIndex: MetadataRoute.Sitemap = news.length > 0
+    ? [{ url: `${BASE_URL}/news`, lastModified: new Date(news[0].updatedAt || news[0].publishedAt), changeFrequency: "weekly", priority: 0.6 }]
+    : []
+  const newsRoutes: MetadataRoute.Sitemap = news.map((n) => ({
+    url: `${BASE_URL}/news/${n.id}`,
+    lastModified: new Date(n.updatedAt || n.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }))
+
+  return [...staticRoutes, ...articleRoutes, ...newsIndex, ...newsRoutes]
 }
