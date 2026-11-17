@@ -4,7 +4,9 @@ import { getSitemapNews } from "@/lib/microcms/news"
 
 const BASE_URL = "https://www.lat91.co.jp"
 
-export const revalidate = 60
+// 本番（Vercel）では sitemap の revalidate が効かず、最初に作った結果を出し続ける（2026-11-17 実測）。
+// 毎回その場で作り、CDN のキャッシュは next.config.mjs の Cache-Control（5分）に任せる。
+export const dynamic = "force-dynamic"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [articles, news] = await Promise.all([getSitemapArticles(), getSitemapNews()])
