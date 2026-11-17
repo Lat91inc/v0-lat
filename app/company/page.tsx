@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
 import { breadcrumbJsonLd, createPageMetadata, webPageJsonLd } from "@/lib/seo"
 import { MapPin } from "lucide-react"
+import { certifications } from "@/lib/certifications"
 
 const description =
   "株式会社Lat91の会社概要・企業情報。AIエージェント開発・DX推進パートナーとして、企業のAI活用、業務自動化、デジタルレイバー導入を支援します。"
@@ -121,6 +122,51 @@ export default function CompanyPage() {
           </div>
         </div>
       </section>
+
+      {/* 認証・取り組み（Initiatives）：ロゴは lib/certifications.ts に足すと増える */}
+      {certifications.length > 0 && (
+        <section className="pb-20 px-6 md:px-12 bg-neutral-50">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-10">
+              Initiatives
+            </h2>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {certifications.map((item) => {
+                const body = (
+                  <>
+                    <div className="flex items-center justify-center h-32 md:h-36 mb-6">
+                      <img
+                        src={item.logo.src}
+                        alt={item.logo.alt}
+                        width={item.logo.width}
+                        height={item.logo.height}
+                        className="h-full w-auto object-contain"
+                      />
+                    </div>
+                    <h3 className="text-base font-bold text-neutral-900">{item.name}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-neutral-500">{item.description}</p>
+                    {item.date && (
+                      <p className="mt-4 font-mono text-xs text-neutral-400">{item.date}</p>
+                    )}
+                  </>
+                )
+                return (
+                  <li key={item.id} className="bg-white rounded-2xl p-8">
+                    {item.href ? (
+                      <a href={item.href} className="block hover:opacity-80 transition-opacity">
+                        {body}
+                      </a>
+                    ) : (
+                      body
+                    )}
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* Map Section */}
       <section className="py-20 px-6 md:px-12 bg-white">
