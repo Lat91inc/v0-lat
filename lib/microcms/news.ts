@@ -21,7 +21,7 @@ function requireClient() {
   return client
 }
 
-// news API がまだ作られていない（404）ときは「0件」として扱う。それ以外の失敗は投げる＝ISRが前回の成功を保つ。
+// news API がまだ作られていない（404）ときは「0件」として扱う。それ以外の失敗は投げる＝前回の成功（ページはISR・sitemapはCDN）を保つ。
 export function isMicroCmsNotFound(error: unknown) {
   return error instanceof Error && /^fetch API response status: 404(?:\s|$)/.test(error.message)
 }

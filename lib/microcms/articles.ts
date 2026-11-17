@@ -27,7 +27,7 @@ export async function getArticleCards(page = 1, category = "all", limit = MEDIA_
 
 export async function getSitemapArticles() {
   // The SDK traverses every page; one getList request is capped at 100 items.
-  // Let failures propagate so ISR retains the last successful sitemap.
+  // Let failures propagate; the CDN serves the last good sitemap (stale-if-error in next.config.mjs).
   return requireClient().getAllContents<Pick<Article, "id" | "publishedAt" | "updatedAt">>({
     endpoint: "media",
     queries: { fields: "id,publishedAt,updatedAt", orders: "-publishedAt,-id" },
