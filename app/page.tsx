@@ -5,6 +5,7 @@ import { CoverageSection } from "@/components/sections/coverage-section"
 import { StrengthSection } from "@/components/sections/strength-section"
 import { CTASection } from "@/components/sections/cta-section"
 import { MediaSection } from "@/components/sections/media-section"
+import { NewsSection } from "@/components/sections/news-section"
 import { Footer } from "@/components/footer"
 
 export const revalidate = 60
@@ -28,6 +29,7 @@ export default function Home() {
       <CoverageSection />
       <StrengthSection />
       <CTASection />
+      <NewsSection />
       <MediaSection />
       <Footer />
     </main>
