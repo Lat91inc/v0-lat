@@ -123,12 +123,12 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      {/* Certifications Section：ロゴは lib/certifications.ts に足すと増える */}
+      {/* 認証・取り組み（Initiatives）：ロゴは lib/certifications.ts に足すと増える */}
       {certifications.length > 0 && (
         <section className="pb-20 px-6 md:px-12 bg-neutral-50">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-mono text-xs tracking-[0.2em] uppercase text-neutral-400 mb-10">
-              Certifications
+              Initiatives
             </h2>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -138,7 +138,7 @@ export default function CompanyPage() {
                     <div className="flex items-center justify-center h-32 md:h-36 mb-6">
                       <img
                         src={item.logo.src}
-                        alt={item.name}
+                        alt={item.logo.alt}
                         width={item.logo.width}
                         height={item.logo.height}
                         className="h-full w-auto object-contain"
