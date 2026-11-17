@@ -2,7 +2,7 @@
 // ロゴは各制度の使用規程どおり、色・縦横比・形を変えずに使う。
 export type Certification = {
   id: string
-  name: string // ロゴの代わりの文字（alt）と見出し
+  name: string // カードの見出し
   description: string
   logo: { src: string; alt: string; width: number; height: number } // alt はロゴに書いてある文字どおり
   date?: string // 例：2026年11月
