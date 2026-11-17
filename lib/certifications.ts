@@ -1,4 +1,4 @@
-// 企業情報ページの「認証・取り組み」（見出しは Initiatives）に並べるロゴ。自己宣言を「認証」と書かない。増えたら配列に1件足し、画像を public/certifications/ に置く。
+// 企業情報ページの「取り組み・パートナー」（見出しは Initiatives & Partnerships）に並べるロゴ。自己宣言を「認証」と書かない。増えたら配列に1件足し、画像を public/certifications/ に置く。
 // ロゴは各制度の使用規程どおり、色・縦横比・形を変えずに使う。
 export type Certification = {
   id: string
