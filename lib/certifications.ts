@@ -5,7 +5,7 @@ export type Certification = {
   name: string // カードの見出し
   description: string
   logo: { src: string; alt: string; width: number; height: number } // alt はロゴに書いてある文字どおり
-  date?: string // 例：2026年11月
+  note?: string // 小さく添える1行（例：自己宣言ID）
   href?: string // 詳しいお知らせや制度のページ
 }
 
@@ -13,8 +13,8 @@ export const certifications: Certification[] = [
   {
     id: "security-action",
     name: "SECURITY ACTION 二つ星",
-    description: "情報処理推進機構（IPA）の制度に基づき、情報セキュリティ対策への取り組みを自己宣言しています。",
+    description: "独立行政法人情報処理推進機構（IPA）",
     logo: { src: "/certifications/security-action-futatsuboshi.png", alt: "SECURITY ACTION 二つ星 セキュリティ対策自己宣言", width: 480, height: 480 },
-    date: "2026年11月 宣言",
+    note: "自己宣言ID：50000438874",
   },
 ]

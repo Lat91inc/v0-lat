@@ -146,8 +146,8 @@ export default function CompanyPage() {
                     </div>
                     <h3 className="text-base font-bold text-neutral-900">{item.name}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-neutral-500">{item.description}</p>
-                    {item.date && (
-                      <p className="mt-4 font-mono text-xs text-neutral-400">{item.date}</p>
+                    {item.note && (
+                      <p className="mt-4 font-mono text-xs text-neutral-400">{item.note}</p>
                     )}
                   </>
                 )
