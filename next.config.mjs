@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async headers() {
+    return [
+      {
+        // sitemap は毎回作るので、CDN で5分持たせる（古い版を返しつつ裏で作り直す）
+        source: "/sitemap.xml",
+        headers: [{ key: "Cache-Control", value: "public, s-maxage=300, stale-while-revalidate=3600" }],
+      },
+    ]
+  },
   async redirects() {
     return [
       {
